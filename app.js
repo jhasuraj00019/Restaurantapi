@@ -5,7 +5,6 @@ const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const mongourl = "mongodb://localhost:27017";
 const mongourl = "mongodb+srv://second:mongo321@cluster0.khewj.mongodb.net/assignment4?retryWrites=true&w=majority";
 let db;
 
