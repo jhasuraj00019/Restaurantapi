@@ -19,18 +19,19 @@ app.get('/',(req,res) => {
 
 //city route (sorting)
 app.get('/city',(req,res) => {
-  const sortcondition = {city_name:1};
+  let sortcondition = {city_name:1};
+  let limit = 100;
   if(req.query.sort && req.query.limit){
-    let sortcontition = {city_name: Number(req.query.sort)}
-    let limit = (req.query.limit);
+    sortcondition = {city_name: Number(req.query.sort)}
+    limit = Number(req.query.limit);
   }
   else if(req.query.sort){
-    let sortcondition = {city_name:Number(req.query.sort)}
+    sortcondition = {city_name:Number(req.query.sort)}
   }
   else if(req.query.limit){
-    let limit = (req.query.limit)
+    limit = Number(req.query.limit);
   }
-  db.collection('city').find().sort(sortcondition).limit(limit).toArray((err,result)=> {
+  db.collection('restaurant').find().sort(sortcondition).limit(limit).toArray((err,result)=> {
     if(err) throw err;
     res.send(result);
   })
