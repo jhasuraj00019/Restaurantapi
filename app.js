@@ -30,7 +30,7 @@ app.get('/city',(req,res) => {
   else if(req.query.limit){
     let limit = (req.query.limit)
   }
-  db.collection('location').find().sort(sortcondition).limit(limit).toArray((err,result)=> {
+  db.collection('city').find().sort(sortcondition).limit(limit).toArray((err,result)=> {
     if(err) throw err;
     res.send(result);
   })
