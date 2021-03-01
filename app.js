@@ -67,7 +67,7 @@ app.get('/restaurant',(req,res) => {
 
 //MealType Route
 app.get('/meal', (req,res) => {
-  db.collection('mealType').find().toArray((err,result) => {
+  db.collection('mealtype').find().toArray((err,result) => {
     if(err) throw err;
     res.send(result);
   })
