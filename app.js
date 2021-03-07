@@ -37,6 +37,15 @@ app.get('/city',(req,res) => {
   })
 });
 
+//restaurant details
+app.get('/restaurant/:id', (req, res) => {
+  var id = req.params.id
+  db.collection('restaurent').find({_id:id}).toArray((err, result) => {
+    if(err) throw err;
+    res.send(result)
+  })
+})
+
 //restaurant Route
 app.get('/restaurant',(req,res) => {
   var condition = {};
